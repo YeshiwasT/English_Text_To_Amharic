@@ -39,7 +39,6 @@ app.get('/amharic', (req, res) => {
        includeNumbers: false, 
        enhance: false, 
 })
-console.log(amharicResult);
 res.send(amharicResult["convertedText"])
 
 })
