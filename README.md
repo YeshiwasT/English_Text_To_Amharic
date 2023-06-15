@@ -3,4 +3,4 @@
 ### example 
 #### telegram bot with username @EnglishTextToAmharicFidel_bot
 #### write a word written "Selam new"
-#### response => 
+#### response => ሰላም ነው
