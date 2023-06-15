@@ -26,10 +26,12 @@ const bot = new TelegramBot(token, {polling: true});
 // messages.
 bot.on('message',async (msg) => {
   const chatId = msg.chat.id;
+  console.log("written text",msg.text,chatId);
 const amharicResult =await convertToAmharic(msg.text, {
   includeNumbers: false, 
   enhance: false, 
 })
+console.log("outputText",amharicResult["convertedText"]);
   // send a message to the chat acknowledging receipt of their message
   bot.sendMessage(chatId, amharicResult["convertedText"]);
 });
