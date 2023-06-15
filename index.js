@@ -35,7 +35,7 @@ const amharicResult =await convertToAmharic(msg.text, {
 });
 app.get('/amharic', (req, res) => {
 
-    const amharicResult = convertToAmharic("Mnm alatefahm ene gn normal mehon alichalkum kayewuk bohala kelela gizew belay kante gar mhon eyfelku nw yh dgmo lik aydlm Tilk sew nesh enem endezaw demo mnm endemanidebabek neber masibew beza lay mnm tenegagiren meftat miyakiten neger aynorm drsha pls anch endih stihognibgn dess ayilm", {
+    const amharicResult = convertToAmharic("AMHARIC TEXT WRITTEN IN ENGLISH LETER", {
        includeNumbers: false, 
        enhance: false, 
 })
