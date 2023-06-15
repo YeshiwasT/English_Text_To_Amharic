@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const app = express()
 const port = process.env.PORT ||3000
 
-const token = '6285301960:AAFGIFv8ggOGI44lXPX6usml8Lkm4gIUJHA';
+const token = process.env.TOKEN;
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
@@ -24,11 +24,14 @@ const bot = new TelegramBot(token, {polling: true});
 
 // Listen for any kind of message. There are different kinds of
 // messages.
-bot.on('message', (msg) => {
+bot.on('message',async (msg) => {
   const chatId = msg.chat.id;
-console.log(msg);
+const amharicResult =await convertToAmharic(msg.text, {
+  includeNumbers: false, 
+  enhance: false, 
+})
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, 'Received your message');
+  bot.sendMessage(chatId, amharicResult["convertedText"]);
 });
 app.get('/amharic', (req, res) => {
 
@@ -37,7 +40,7 @@ app.get('/amharic', (req, res) => {
        enhance: false, 
 })
 console.log(amharicResult);
-res.send(amharicResult)
+res.send(amharicResult["convertedText"])
 
 })
 app.get('/', (req, res) => { 
